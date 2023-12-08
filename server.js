@@ -39,12 +39,16 @@ let posts = [
 // Define a route for the root path
 app.get('/', (req, res) => {
   // Send a response to the client
-  res.send(posts);
+  res.send("<h1>Hello World</h1>");
 });
+app.get('/posts', (req, res) => {
+    // Send a response to the client
+    res.json({posts:posts});
+  });
 
 app.get('/:id', (req, res) => {
-    
-    res.send(posts.filter((post)=> post.id == req.params.id));
+    const post = posts.filter((post)=> post.id == req.params.id)
+    res.json({post:post});
   });
 
 // Set the server to listen on port 3000
