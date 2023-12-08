@@ -1,5 +1,5 @@
 // Import the Express module
-const express = require('express');
+import express from 'express'
 
 // Create an Express application
 const app = express();
@@ -46,7 +46,7 @@ app.get('/posts', (req, res) => {
     res.json({posts:posts});
   });
 
-app.get('/:id', (req, res) => {
+app.get('posts/:id', (req, res) => {
     const post = posts.filter((post)=> post.id == req.params.id)
     res.json({post:post});
   });
